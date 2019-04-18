@@ -1,0 +1,87 @@
+<!DOCTYPE html> <html><head>
+        <title>Driving Survey</title>
+        
+    <style>body{
+    background-image:url("https://cdn.aarp.net/content/dam/aarp/auto/2016/06/1140-distracted-driving-tips-intro.imgcache.revc3146837140ff361f2e7651d97e0a010.jpg");
+    Background-size: 100%;
+    background-attachment: fixed;
+    color:red;
+    }
+h1{
+    color:red;
+    font-size: 40px;
+    }
+</style></head>
+   
+    <body>
+    <h1>Driving Survey</h1>
+    <input class="iptOne" placeholder="Type here"> First Name<br><br>
+    <input class="iptTwo" placeholder="Type here"> Last Name<br><br>
+    <input class="ageIpt" type="number" max="99" min="13"> Age<br><br>
+    <input class="birthIpt" max="2019-2-4" type="date"> Birthday<br><br>
+    Eye color<br>
+    <form id="numberForm">
+    <input name="eye" value="Brown" type="radio"> Brown<br> 
+    <input name="eye" value="Blue" type="radio"> Blue<br>
+    <input name="eye" value="Green" type="radio"> Green<br>
+    <input name="eye" value="Hazel" type="radio"> Hazel<br>
+    <input name="eye" value="Contacts" type="radio"> Contact's(If worn)<br><br>
+    </form>
+    <input id="btn" type="button" value="Submit Survey">
+    <p class="target"></p>
+    
+
+<script>
+/*__POPCODESTART__*/
+var firstName1;
+var lastName1;
+var age1;
+var birthday1;
+var eyeColor1;
+
+var data = {
+    firstName: "",
+    lastName: "",
+    age: 0,
+    Birthday: "",
+    eyeColor: "",
+    checkAge: function(){
+    if (this.age < 16){
+    alert("Your not old enough -_-");
+    }else if(this.age === 16){
+    alert("Driver allowed to have a permit");
+    }else if(this.age === 17){
+    alert("Driver allowed to have a permit");
+    }else{
+    alert("Drivers license allowed");      
+        }
+      },
+    Info: function(){
+        document.querySelector(".target").innerHTML = this.firstName + "<br>" + this.lastName + "<br>" + this.eyeColor + "<br>" + this.Birthday ;
+       
+            }
+    };
+document.getElementById('btn').addEventListener('click', function() {
+var formInput = document.getElementById("numberForm");
+ firstName1 = document.querySelector(".iptOne").value;
+console.log(firstName1);
+ lastName1 = document.querySelector(".iptTwo").value;
+console.log(lastName1);
+ age1 = document.querySelector(".ageIpt").value;
+console.log(age1);
+ birthday1 = document.querySelector(".birthIpt").value;
+console.log(birthday1);
+var r = formInput.eye.value;
+console.log(r);
+var age3 = parseInt(age1);
+console.log(age3);  
+data.firstName = firstName1;
+data.lastName = lastName1;
+data.age = age3;
+console.log(age3);
+data.Birthday = birthday1;
+data.eyeColor = r;
+data.checkAge(age3);
+data.Info();
+});
+</script></body></html>
